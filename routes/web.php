@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('fileentry', 'FileEntryController@index');
 Route::get('fileentry/get/{filename}', [
 	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
-Route::get('fileentry/get/{filename}', [
+Route::get('uploads/{filename}', [
 	'as' => 'getuploads', 'uses' => 'FileEntryController@getuploads']);
 Route::post('fileentry/add',[ 
         'as' => 'addentry', 'uses' => 'FileEntryController@add']);
