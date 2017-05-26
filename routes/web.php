@@ -20,3 +20,7 @@ Route::get('fileentry/get/{filename}', [
 	'as' => 'getentry', 'uses' => 'FileEntryController@get']);
 Route::post('fileentry/add',[ 
         'as' => 'addentry', 'uses' => 'FileEntryController@add']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
