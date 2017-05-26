@@ -34,4 +34,13 @@ class FileEntryController extends Controller
 		return redirect('fileentry');
 		
 	}
+
+	public function get($filename){
+	
+		$entry = Fileentry::where('filename', '=', $filename)->firstOrFail();
+		$file = Storage::disk('local')->get($entry->filename);
+ 
+		return (new Response($file, 200))
+              ->header('Content-Type', $entry->mime);
+	}
 }
