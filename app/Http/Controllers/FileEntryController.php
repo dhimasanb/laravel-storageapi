@@ -43,4 +43,13 @@ class FileEntryController extends Controller
 		return (new Response($file, 200))
               ->header('Content-Type', $entry->mime);
 	}
+
+	public function getUploads($filename){
+	
+		$entry = Fileentry::where('filename', '=', $filename)->firstOrFail();
+		$file = Storage::disk('local')->get('public/uploads/'.$entry->filename);
+ 
+		return (new Response($file, 200))
+              ->header('Content-Type', $entry->mime);
+	}
 }
