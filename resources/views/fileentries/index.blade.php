@@ -1,7 +1,9 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
+<div class="container">
  
     <form action="{{route('addentry', [])}}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <input type="file" name="filefield">
         <input type="submit">
     </form>
@@ -20,6 +22,7 @@
             </div>
  @endforeach
  </ul>
+ </div>
  </div>
  
 @endsection
