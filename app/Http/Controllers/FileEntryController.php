@@ -23,7 +23,7 @@ class FileEntryController extends Controller
  
 		$file = Request::file('filefield');
 		$extension = $file->getClientOriginalExtension();
-		Storage::disk('local')->put($file->getFilename().'.'.$extension,  File::get($file));
+		Storage::disk('local')->put('public/uploads/'.$file->getFilename().'.'.$extension,  File::get($file));
 		$entry = new Fileentry();
 		$entry->mime = $file->getClientMimeType();
 		$entry->original_filename = $file->getClientOriginalName();
